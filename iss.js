@@ -35,7 +35,7 @@ const fetchCoordsByIP = function(ip, callback) {
       const message = `Success status was ${parsedBody.success}. Server message says: ${parsedBody.message} when fetching for IP ${parsedBody.ip}`;
       callback(Error(message), null);
       return;
-    } 
+    }
 
     // destructures the latitude and longitude from the parsedBody, creating two new vars
     const { latitude, longitude } = parsedBody;
@@ -57,7 +57,7 @@ const fetchISSFlyOverTimes = function(coords, callback) {
       callback(Error(`Status Code ${response.statusCode} when fetching ISS pass times: ${body}`), null);
       return;
     }
-    // console.log("body:  ", body);  
+    // console.log("body:  ", body);
     // console.log(typeof body);  returns string, so it needs to be parsed.
     // body.response is a specific part of body, not the response
     const passes = JSON.parse(body).response;
